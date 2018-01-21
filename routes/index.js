@@ -11,11 +11,11 @@ var connection= mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Peliculas' });
-  connection.connect();
-  connection.query('select * from peliculas', function(err,rows, fileds){
+ 
+  connection.query('select * from peliculas', function(err,rows, fields){
     if(err) throw err;
     console.log('El resultado es: ', rows[0]);
+    res.json(rows);
   });
  
 });
