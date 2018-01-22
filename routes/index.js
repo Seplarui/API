@@ -17,6 +17,11 @@ router.get('/', function(req, res, next) {
     if(err) throw err;
     console.log('El resultado es: ', rows[0].Titulo);
     res.json(rows[0]);
+ 
+  connection.query('select * from peliculas', function(err,rows, fields){
+    if(err) throw err;
+    console.log('El resultado es: ', rows[0]);
+    res.json(rows);
   });
  
 });
